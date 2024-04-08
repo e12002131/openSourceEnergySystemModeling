@@ -15,9 +15,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.12
-    - name: Install pytest
-      run: pip install pytest
-    - name: Install pandas
-      run: pip install pandas
+    - name: Install dependencies
+      run: pip install pytest pandas
     - name: Test with pytest
       run: pytest
