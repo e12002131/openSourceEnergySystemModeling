@@ -1,11 +1,11 @@
 from funktionen import importSynthload, initializeLoadProfile, addLoad, pickDay
 import pandas as pd
 
-#def test_importSynthload():
-#    assert importSynthload().iloc[0,0] == 0.02713
-#    assert importSynthload().iloc[100,20] == 0.10164
-#    assert importSynthload().iloc[0,26] == 0.05906
-#    assert importSynthload().iloc[35135,26] == 0.05906
+def test_importSynthload():
+    assert importSynthload().iloc[0,0] == 0.02713
+    assert importSynthload().iloc[100,20] == 0.10164
+    assert importSynthload().iloc[0,26] == 0.05906
+    assert importSynthload().iloc[35135,26] == 0.05906
 
 
 def test_initializeLoadProfile():
@@ -18,7 +18,7 @@ def test_initializeLoadProfile():
     assert initializeLoadProfile(df_test).reset_index().iloc[3,1] == 0
 
 def test_addLoad():
-    df_synth_test = pd.DataFrame({'col1': [1, 2, 3, 4], 'col2': [5, 6, 7, 8], 'col2': [9, 10, 11, 12], 'col3': [13, 14, 15, 16], 'col4': [17, 18, 19, 20]})
+    df_synth_test = pd.DataFrame({'col1': [1, 2, 3, 4], 'col2': [5, 6, 7, 8], 'col3': [9, 10, 11, 12], 'col4': [13, 14, 15, 16], 'col5': [17, 18, 19, 20]})
     df_synth_test.set_index('col1', inplace=True)
 
     df_load_test = pd.DataFrame({'col1': [1, 2, 3, 4], 'load': [1, 2, 3, 4]})
@@ -26,8 +26,8 @@ def test_addLoad():
 
     assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[0,0] == 37
     assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[3,0] == 52
-    assert addLoad(df_synth_test, df_load_test, 'col4', 2).iloc[0,0] == 137
-    assert addLoad(df_synth_test, df_load_test, 'col4', 2).iloc[3,0] == 164
+    assert addLoad(df_synth_test, df_load_test, 'col5', 2).iloc[0,0] == 137
+    assert addLoad(df_synth_test, df_load_test, 'col5', 2).iloc[3,0] == 164
 
 def test_pickDay():
     df_load_test = pd.DataFrame({'time': ['2024-01-01', '2024-01-01', '2024-01-02', '2024-01-02', '2024-01-03', '2024-01-03', '2024-01-04', '2024-01-04'], 'load': [1, 2, 3, 4, 5, 6, 7, 8]})
