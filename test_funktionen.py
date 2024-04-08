@@ -1,4 +1,7 @@
-from funktionen import importSynthload, initializeLoadProfile, addLoad, pickDay
+from funktionen import importSynthload
+from funktionen import initializeLoadProfile
+from funktionen import addLoad
+from funktionen import pickDay
 import pandas as pd
 
 def test_importSynthload():
