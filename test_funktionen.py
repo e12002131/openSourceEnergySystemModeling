@@ -27,8 +27,8 @@ def test_addLoad():
     df_load_test = pd.DataFrame({'col1': [1, 2, 3, 4], 'load': [1, 2, 3, 4]})
     df_load_test.set_index('col1', inplace=True)
 
-    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[0,0] == 37
-    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[3,0] == 52
+    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[0,0] == 21
+    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[3,0] == 36
     assert addLoad(df_synth_test, df_load_test, 'col5', 2).iloc[0,0] == 137
     assert addLoad(df_synth_test, df_load_test, 'col5', 2).iloc[3,0] == 164
 

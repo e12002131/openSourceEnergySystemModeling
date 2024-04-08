@@ -16,6 +16,6 @@ jobs:
       with:
         python-version: 3.12
     - name: Install dependencies
-      run: pip install pytest pandas
+      run: pip install pytest pandas openpyxl
     - name: Test with pytest
       run: pytest
