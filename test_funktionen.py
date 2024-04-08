@@ -1,4 +1,5 @@
 from funktionen import importSynthload, initializeLoadProfile, addLoad, pickDay
+import pandas as pd
 
 def test_importSynthload():
     assert importSynthload().iloc[0,0] == 0.02713
@@ -24,9 +25,9 @@ def test_addLoad():
     df_load_test.set_index('col1', inplace=True)
 
     assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[0,0] == 37
-    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[0,3] == 52
+    assert addLoad(df_synth_test, df_load_test, 'col2', 1).iloc[3,0] == 52
     assert addLoad(df_synth_test, df_load_test, 'col4', 2).iloc[0,0] == 137
-    assert addLoad(df_synth_test, df_load_test, 'col4', 2).iloc[0,3] == 164
+    assert addLoad(df_synth_test, df_load_test, 'col4', 2).iloc[3,0] == 164
 
 def test_pickDay():
     df_load_test = pd.DataFrame({'time': ['2024-01-01', '2024-01-01', '2024-01-02', '2024-01-02', '2024-01-03', '2024-01-03', '2024-01-04', '2024-01-04'], 'load': [1, 2, 3, 4, 5, 6, 7, 8]})
