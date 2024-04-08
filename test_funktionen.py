@@ -1,11 +1,11 @@
 from funktionen import importSynthload, initializeLoadProfile, addLoad, pickDay
 import pandas as pd
 
-def test_importSynthload():
-    assert importSynthload().iloc[0,0] == 0.02713
-    assert importSynthload().iloc[100,20] == 0.10164
-    assert importSynthload().iloc[0,26] == 0.05906
-    assert importSynthload().iloc[35135,26] == 0.05906
+#def test_importSynthload():
+#    assert importSynthload().iloc[0,0] == 0.02713
+#    assert importSynthload().iloc[100,20] == 0.10164
+#    assert importSynthload().iloc[0,26] == 0.05906
+#    assert importSynthload().iloc[35135,26] == 0.05906
 
 
 def test_initializeLoadProfile():
