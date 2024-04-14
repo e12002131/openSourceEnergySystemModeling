@@ -1,6 +1,8 @@
 from funktionen import importSynthload, initializeLoadProfile, addLoad, pickDay
 from IPython.display import display
 
+import numpy as np # make ruff fail
+
 # import synthload2024.xlsx
 synthload = importSynthload()
 
