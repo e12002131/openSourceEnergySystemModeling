@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np # make ruff fail
 
 
 # imports synthload2024.xlsx as DataFrame
@@ -45,7 +46,7 @@ def addLoad(
     # multiplied with 4 because the values in synthload profiles are energy per 15 minutes instead of power
     df_load_profile_temp["load"] = (
         df_load_profile_temp["load"]
-        + df_synthload_in[load_profile] * yearly_energy_consumption * 4
+        + df_synthload_in[load_profile] * yearly_energy_consumption # make tests fail, removed * 4
     )
 
     return df_load_profile_temp
@@ -61,7 +62,7 @@ def pickDay(df_load_profile_in, day_of_year):
 
     # select entries where column 'day of year' == given variable 'day_of_year'
     df_load_profile_temp = df_load_profile_temp.where(
-        df_load_profile_temp["day of year"] == day_of_year
+        df_load_profile_temp["day of year"] == day_of_year + 1 # make tests fail addet + 1
     )
 
     # delete NaN entries (everywhere where column 'day of year' != 'day_of_year')
